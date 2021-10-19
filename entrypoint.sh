@@ -21,6 +21,7 @@ echo "colcon mixin update default" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon build --event-handlers console_cohesion+ --symlink-install --cmake-args ${CMAKE_ARGS}" >> entrypoint.sh
 # return non-zero value if error was detected
 echo "RET=$?" >> entrypoint.sh
+echo "Return code is $RET"
 echo "if [ $RET -ne 0 ]; then" >> entrypoint.sh
 echo "  exit $RET" >> entrypoint.sh
 echo "fi" >> entrypoint.sh
