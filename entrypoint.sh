@@ -14,10 +14,6 @@ echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> entrypoint.sh
 echo "vcs import /home/ubuntu/Desktop/behavior_plugin_ws/src < /home/ubuntu/Desktop/behavior_plugin_ws/src/target/${REPOS_PATH}" >> entrypoint.sh
 echo "rosdep update" >> entrypoint.sh
 echo "rosdep install -iry --from-paths /home/ubuntu/Desktop/behavior_plugin_ws/src --rosdistro $ROS_DISTRO" >> entrypoint.sh
-echo "echo available packages" >> entrypoint.sh
-echo "echo =============================================================" >> entrypoint.sh
-echo "ros2 pkg list" >> entrypoint.sh
-echo "echo =============================================================" >> entrypoint.sh
 echo "cd /home/ubuntu/Desktop/behavior_plugin_ws" >> entrypoint.sh
 echo "colcon mixin add default 'https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml'" >> entrypoint.sh
 echo "colcon mixin update default" >> entrypoint.sh
