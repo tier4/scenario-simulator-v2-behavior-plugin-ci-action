@@ -26,7 +26,7 @@ cd /build_image
 docker build -t build_image \
     --build-arg ROS_DISTRO="$ROS_DISTRO" \
     . \
-    && docker run build_image -v /tmp/behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
+    && docker run build_image --mount type=bind,source=/tmp/behavior_plugin_ws,target=/home/ubuntu/Desktop/behavior_plugin_ws
 
 echo =================================
 ls /tmp/behavior_plugin_ws
