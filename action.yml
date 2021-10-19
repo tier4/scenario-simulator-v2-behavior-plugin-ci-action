@@ -15,5 +15,5 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.repository_url }}
+    - ${{ inputs.repos_yaml }}
     - ${{ inputs.cmake_args }}
