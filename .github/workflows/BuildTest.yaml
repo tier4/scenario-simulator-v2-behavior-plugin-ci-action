@@ -23,11 +23,11 @@ jobs:
     - name: Run scenario-simulator-v2-behavior-plugin-ci-action test action
       uses: ./
       with:
-        repos_yaml: |
-          repositories: 
+        repos_yaml:
+          "repositories: 
               type: git
               url: https://github.com/tier4/context_gamma_planner.git
-              version: master
+              version: master"
         cmake_args: -DWITH_INTEGRATION_TEST=ON"
       env:
         GTHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 
