@@ -12,7 +12,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    name: A test job for ros integration test action
+    name: A test job for scenario-simulator-v2-behavior-plugin-ci-action
     strategy:
       fail-fast: false
       matrix:
@@ -20,7 +20,7 @@ jobs:
     steps:
     # To use this repository's private action, you must check out the repository
     - uses: actions/checkout@v2
-    - name: Run ros integration test action
+    - name: Run scenario-simulator-v2-behavior-plugin-ci-action test action
       uses: ./
       with:
         repository_url: https://github.com/tier4/context_gamma_planner.git
