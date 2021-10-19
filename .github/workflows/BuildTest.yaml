@@ -26,4 +26,4 @@ jobs:
         repository_url: https://github.com/tier4/context_gamma_planner.git
         cmake_args: -DWITH_INTEGRATION_TEST=ON
       env:
-        GTHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        GTHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 
