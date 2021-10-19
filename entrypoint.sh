@@ -28,7 +28,7 @@ docker build -t build_image \
     . \
     && docker run build_image -v $PWD/../behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
 
-ls $PWD/..
+ls $PWD/../behavior_plugin_ws
 
 cd ../test_image
 touch entrypoint.sh
