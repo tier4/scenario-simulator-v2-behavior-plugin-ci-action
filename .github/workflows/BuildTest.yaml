@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        rosdistro: [galactic]
+        rosdistro: [foxy, galactic]
     steps:
     # To use this repository's private action, you must check out the repository
     - uses: actions/checkout@v2
