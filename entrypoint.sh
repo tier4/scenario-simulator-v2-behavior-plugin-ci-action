@@ -10,7 +10,7 @@ echo "#!/bin/bash -l" >> entrypoint.sh
 echo "git config --global url.'https://$GTHUB_TOKEN:x-oauth-basic@github.com/'.insteadOf 'https://github.com/'" >> entrypoint.sh
 echo "cd /home/ubuntu/Desktop/behavior_plugin_ws/src" >> entrypoint.sh
 echo "git clone ${REPOSITORY_URL} target"  >> entrypoint.sh
-echo "source /opt/ros/galactic/setup.bash" >> entrypoint.sh
+echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> entrypoint.sh
 echo "vcs import /home/ubuntu/Desktop/behavior_plugin_ws/src < /home/ubuntu/Desktop/behavior_plugin_ws/src/target/${REPOS_PATH}" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash"
 echo "rosdep update" >> entrypoint.sh
