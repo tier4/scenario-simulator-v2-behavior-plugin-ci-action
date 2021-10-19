@@ -28,6 +28,9 @@ docker build -t build_image \
     . \
     && docker run build_image -v ../behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
 
+ls ../behavior_plugin_ws/build
+ls ../behavior_plugin_ws/install
+
 cd ../test_image
 touch entrypoint.sh
 echo "#!/bin/bash -l" >> entrypoint.sh
