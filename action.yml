@@ -7,6 +7,10 @@ inputs:
   repository_url:
     description: "url of behavior plugin github repository"
     required: true
+  repos_path:
+    description: relative repos yaml path in your repository
+    required: false
+    default: dependency.repos
   cmake_args:
     description: "--cmake-args variable in colcon build"
     required: false
@@ -15,5 +19,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.repos_yaml }}
+    - ${{ inputs.repository_url }}
+    - ${{ inputs.repos_path }}
     - ${{ inputs.cmake_args }}

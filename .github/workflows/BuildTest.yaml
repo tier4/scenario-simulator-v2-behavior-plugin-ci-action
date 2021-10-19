@@ -20,15 +20,10 @@ jobs:
     steps:
     # To use this repository's private action, you must check out the repository
     - uses: actions/checkout@v2
-    - name: Run scenario-simulator-v2-behavior-plugin-ci-action test action
+    - name: Run ros integration test action
       uses: ./
       with:
-        repos_yaml: |
-          "{\"repositories\": {
-            \"context_gamma_planner\": {
-              \"type\": \"git\",
-              \"url\": \"https://github.com/tier4/context_gamma_planner.git\",
-              \"version\": \"master\"}}}"
-        cmake_args: -DWITH_INTEGRATION_TEST=ON"
+        repository_url: https://github.com/tier4/context_gamma_planner.git
+        cmake_args: -DWITH_INTEGRATION_TEST=ON
       env:
         GTHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 
