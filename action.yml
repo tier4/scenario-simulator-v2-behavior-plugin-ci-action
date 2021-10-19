@@ -1,0 +1,19 @@
+name: 'scenario-simulator-v2-behavior-plugin-ci-action'
+description: 'CI action for behavior plugin in scenario_simulator_v2'
+branding:
+  icon: "user-check"
+  color: "blue"
+inputs:
+  repository_url:
+    description: "url of behavior plugin github repository"
+    required: true
+  cmake_args:
+    description: "--cmake-args variable in colcon build"
+    required: false
+    default: -DWITH_INTEGRATION_TEST=ON
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repository_url }}
+    - ${{ inputs.cmake_args }}

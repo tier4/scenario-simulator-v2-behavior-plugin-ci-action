@@ -1,0 +1,29 @@
+name: test
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: A test job for ros integration test action
+    strategy:
+      fail-fast: false
+      matrix:
+        rosdistro: [galactic]
+    steps:
+    # To use this repository's private action, you must check out the repository
+    - uses: actions/checkout@v2
+    - name: Run ros integration test action
+      uses: ./
+      with:
+        repository_url: https://github.com/tier4/context_gamma_planner.git
+        cmake_args: -DWITH_INTEGRATION_TEST=ON
+      env:
+        GTHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
