@@ -24,11 +24,10 @@ jobs:
       uses: ./
       with:
         repos_yaml: |
-          "repositories: 
-            data_buffer: 
+          repositories: 
               type: git
               url: https://github.com/tier4/context_gamma_planner.git
-              version: master"
+              version: master
         cmake_args: -DWITH_INTEGRATION_TEST=ON"
       env:
         GTHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 
