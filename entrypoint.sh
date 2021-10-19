@@ -38,7 +38,7 @@ echo "cd /home/ubuntu/Desktop/behavior_plugin_ws/src" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon lcov-result --initial" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon test --event-handlers console_cohesion+ --return-code-on-test-failure" >> entrypoint.sh
 
-docker build -t test_image \
-    --build-arg ROS_DISTRO="$ROS_DISTRO" \
-    . \
-    && docker run test_image -v ../behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
+#docker build -t test_image \
+#    --build-arg ROS_DISTRO="$ROS_DISTRO" \
+#    . \
+#    && docker run test_image -v ../behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
