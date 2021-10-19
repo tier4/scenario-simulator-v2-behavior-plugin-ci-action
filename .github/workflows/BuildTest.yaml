@@ -25,5 +25,6 @@ jobs:
       with:
         repository_url: https://github.com/tier4/context_gamma_planner.git
         cmake_args: -DWITH_INTEGRATION_TEST=ON
+        rosdistro: ${{ matrix.rosdistro }}
       env:
         GTHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 
