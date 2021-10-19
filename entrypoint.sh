@@ -9,6 +9,7 @@ git clone ${REPOSITORY_URL} target
 source /opt/ros/galactic/setup.bash
 vcs import /home/ubuntu/Desktop/behavior_plugin_ws/src < /home/ubuntu/Desktop/behavior_plugin_ws/src/target/${REPOS_PATH}
 source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash
+rosdep update
 rosdep install -iry --from-paths /home/ubuntu/Desktop/behavior_plugin_ws/src --rosdistro $ROS_DISTRO
 cd /home/ubuntu/Desktop/behavior_plugin_ws
 colcon mixin add default 'https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml'
