@@ -28,13 +28,13 @@ docker build -t build_image \
     . \
     && docker run build_image -v ../behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
 
+touch entrypoint.sh
+echo "#!/bin/bash -l" >> entrypoint.sh
+echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon lcov-result --initial" >> entrypoint.sh
+echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon test --event-handlers console_cohesion+ --return-code-on-test-failure" >> entrypoint.sh
+
 cd ../test_image
 docker build -t test_image \
     --build-arg ROS_DISTRO="$ROS_DISTRO" \
     . \
     && docker run test_image -v ../behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
-
-touch entrypoint.sh
-echo "#!/bin/bash -l" >> entrypoint.sh
-echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon lcov-result --initial" >> entrypoint.sh
-echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon test --event-handlers console_cohesion+ --return-code-on-test-failure" >> entrypoint.sh
