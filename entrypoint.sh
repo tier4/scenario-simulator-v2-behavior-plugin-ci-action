@@ -19,6 +19,12 @@ echo "pip3 install colcon-lcov-result==0.5.0" >> entrypoint.sh
 echo "colcon mixin add default 'https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml'" >> entrypoint.sh
 echo "colcon mixin update default" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon build --event-handlers console_cohesion+ --symlink-install --cmake-args ${CMAKE_ARGS}" >> entrypoint.sh
+# return non-zero value if error was detected
+echo "RET=$?" >> entrypoint.sh
+echo "if [ $RET -ne 0 ]; then" >> entrypoint.sh
+echo "  exit $RET" >> entrypoint.sh
+echo "fi" >> entrypoint.sh
+# return non-zero value if error was detected
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon lcov-result --initial" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon test --event-handlers console_cohesion+ --return-code-on-test-failure" >> entrypoint.sh
 
