@@ -1,7 +1,8 @@
-FROM build_image
+ARG ROS_DISTRO
+FROM tier4/scenario_simulator_v2:${ROS_DISTRO}
 SHELL ["/bin/bash", "-c"]
+RUN mkdir -p /home/ubuntu/Desktop/behavior_plugin_ws/src
 
-RUN source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && \
-  colcon lcov-result --initial
-RUN source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && \
-  colcon test --event-handlers console_cohesion+ --return-code-on-test-failure
+COPY entrypoint.sh /home/ubuntu/Desktop/entrypoint.sh
+RUN ["chmod", "+x", "/home/ubuntu/Desktop/entrypoint.sh"]
+ENTRYPOINT ["/home/ubuntu/Desktop/entrypoint.sh"]
