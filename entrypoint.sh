@@ -21,17 +21,17 @@ echo "colcon mixin update default" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon build --event-handlers console_cohesion+ --symlink-install --cmake-args ${CMAKE_ARGS}" >> entrypoint.sh
 
 cd ../
-mkdir behavior_plugin_ws
+mkdir /tmp/behavior_plugin_ws
 cd /build_image
 docker build -t build_image \
     --build-arg ROS_DISTRO="$ROS_DISTRO" \
     . \
-    && docker run build_image -v $PWD/../behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
+    && docker run build_image -v /tmp/behavior_plugin_ws:/home/ubuntu/Desktop/behavior_plugin_ws
 
 echo =================================
-ls $PWD/..
+ls /tmp/behavior_plugin_ws
 echo =================================
-ls $PWD/../behavior_plugin_ws
+ls /tmp
 echo =================================
 
 cd ../test_image
