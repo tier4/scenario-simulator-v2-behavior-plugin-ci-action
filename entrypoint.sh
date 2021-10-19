@@ -14,3 +14,5 @@ cd /home/ubuntu/Desktop/behavior_plugin_ws
 colcon mixin add default 'https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml'
 colcon mixin update default
 colcon build --event-handlers console_cohesion+ --symlink-install --cmake-args ${CMAKE_ARGS}
+colcon lcov-result --initial
+colcon test --event-handlers console_cohesion+ --return-code-on-test-failure
