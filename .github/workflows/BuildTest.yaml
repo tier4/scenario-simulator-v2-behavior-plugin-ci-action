@@ -13,10 +13,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: A test job for scenario-simulator-v2-behavior-plugin-ci-action
-    strategy:
-      fail-fast: false
-      matrix:
-        rosdistro: [foxy, galactic]
     steps:
     # To use this repository's private action, you must check out the repository
     - uses: actions/checkout@v2
@@ -25,6 +21,5 @@ jobs:
       with:
         repository_url: https://github.com/tier4/context_gamma_planner.git
         cmake_args: -DWITH_INTEGRATION_TEST=ON
-        rosdistro: ${{ matrix.rosdistro }}
       env:
         GTHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 

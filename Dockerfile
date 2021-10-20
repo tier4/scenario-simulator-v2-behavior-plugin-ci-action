@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM tier4/scenario_simulator_v2:galactic
 
 COPY build_image /build_image
 COPY test_image /test_image
