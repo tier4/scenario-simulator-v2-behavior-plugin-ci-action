@@ -15,6 +15,10 @@ inputs:
     description: "--cmake-args variable in colcon build"
     required: false
     default: -DWITH_INTEGRATION_TEST=ON
+  ros_distro:
+    description: "ros distribution currently support galactic and foxy"
+    required: false
+    default: galactic
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -22,3 +26,4 @@ runs:
     - ${{ inputs.repository_name }}
     - ${{ inputs.repos_path }}
     - ${{ inputs.cmake_args }}
+    - ${{ inputs.ros_distro }}

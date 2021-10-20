@@ -21,5 +21,6 @@ jobs:
       with:
         repository_name: tier4/context_gamma_planner
         cmake_args: -DWITH_INTEGRATION_TEST=ON
+        ros_distro: galactic
       env:
         GITHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 

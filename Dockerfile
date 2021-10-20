@@ -1,8 +1,10 @@
-FROM tier4/scenario_simulator_v2:galactic
-SHELL ["/bin/bash", "-c"]
-RUN mkdir -p /home/ubuntu/Desktop/behavior_plugin_ws/src
-RUN apt-get update && apt-get install -y figlet
+FROM alpine:latest
 
-COPY entrypoint.sh /home/ubuntu/Desktop/entrypoint.sh
-RUN ["chmod", "+x", "/home/ubuntu/Desktop/entrypoint.sh"]
-ENTRYPOINT ["/home/ubuntu/Desktop/entrypoint.sh"]
+COPY build_image /build_image
+COPY test_image /test_image
+COPY entrypoint.sh /entrypoint.sh
+
+RUN apk add --update --no-cache docker
+RUN ["chmod", "+x", "/entrypoint.sh"]
+
+ENTRYPOINT ["sh", "/entrypoint.sh"]
