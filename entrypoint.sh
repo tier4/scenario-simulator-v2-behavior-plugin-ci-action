@@ -3,6 +3,8 @@ REPOSITORY_NAME=$1
 REPOS_PATH=$2
 CMAKE_ARGS=$3
 
+set -e
+
 cd /home/ubuntu/Desktop/behavior_plugin_ws/src
 
 figlet Clone Step
