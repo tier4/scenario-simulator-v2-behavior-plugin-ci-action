@@ -19,7 +19,7 @@ echo "pip3 install colcon-lcov-result==0.5.0" >> entrypoint.sh
 echo "colcon mixin add default 'https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml'" >> entrypoint.sh
 echo "colcon mixin update default" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon build --event-handlers console_cohesion+ --symlink-install --cmake-args ${CMAKE_ARGS}" >> entrypoint.sh
-echo "exit 1"
+echo "exit 1" >> entrypoint.sh
 
 cd ../
 mkdir /tmp/behavior_plugin_ws
