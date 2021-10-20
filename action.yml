@@ -4,8 +4,8 @@ branding:
   icon: "user-check"
   color: "blue"
 inputs:
-  repository_url:
-    description: "url of behavior plugin github repository"
+  repository_name:
+    description: "repository name of behavior plugin github repository, such as tier4/context_gamma_planner"
     required: true
   repos_path:
     description: relative repos yaml path in your repository
@@ -19,6 +19,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.repository_url }}
+    - ${{ inputs.repository_name }}
     - ${{ inputs.repos_path }}
     - ${{ inputs.cmake_args }}
