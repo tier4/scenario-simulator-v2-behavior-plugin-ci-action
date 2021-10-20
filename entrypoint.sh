@@ -16,7 +16,7 @@ echo "cd /home/ubuntu/Desktop/behavior_plugin_ws/src" >> entrypoint.sh
 
 echo "figlet Clone Step" >> entrypoint.sh
 echo "git clone https://$GITHUB_TOKEN:x-oauth-basic@github.com/${REPOSITORY_NAME}.git target" >> entrypoint.sh
-echo "source /opt/ros/galactic/setup.bash" >> entrypoint.sh
+echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash" >> entrypoint.sh
 
 echo "figlet VCS Import Step" >> entrypoint.sh
@@ -24,7 +24,7 @@ echo "vcs import /home/ubuntu/Desktop/behavior_plugin_ws/src < /home/ubuntu/Desk
 
 echo "figlet Rosdep Step" >> entrypoint.sh
 echo "rosdep update" >> entrypoint.sh
-echo "rosdep install -iry --from-paths /home/ubuntu/Desktop/behavior_plugin_ws/src --rosdistro galactic" >> entrypoint.sh
+echo "rosdep install -iry --from-paths /home/ubuntu/Desktop/behavior_plugin_ws/src --rosdistro ${ROS_DISTRO}" >> entrypoint.sh
 echo "cd /home/ubuntu/Desktop/behavior_plugin_ws" >> entrypoint.sh
 
 echo "figlet Install colcon-lcov Step" >> entrypoint.sh
