@@ -5,10 +5,12 @@ CMAKE_ARGS=$3
 
 cd /home/ubuntu/Desktop/behavior_plugin_ws/src
 
-figlet Clone ${REPOSITORY_NAME} Step
+figlet Clone Step
 git clone https://$GITHUB_TOKEN:x-oauth-basic@github.com/${REPOSITORY_NAME}.git target
 source /opt/ros/galactic/setup.bash
 source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash
+
+figlet VCS Import Step
 vcs import /home/ubuntu/Desktop/behavior_plugin_ws/src < /home/ubuntu/Desktop/behavior_plugin_ws/src/target/${REPOS_PATH}
 
 figlet Rosdep Step
@@ -24,7 +26,7 @@ colcon mixin update default
 figlet Build Step
 colcon build --event-handlers console_cohesion+ --symlink-install --cmake-args ${CMAKE_ARGS}
 
-figlet Initialize Lcov Step
+figlet Lcov Step
 colcon lcov-result --initial
 
 figlet Run Test Step
