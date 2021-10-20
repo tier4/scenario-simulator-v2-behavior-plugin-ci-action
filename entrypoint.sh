@@ -14,6 +14,11 @@ cd /home/ubuntu/Desktop/behavior_plugin_ws
 pip3 install colcon-lcov-result==0.5.0
 colcon mixin add default 'https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml'
 colcon mixin update default
+apt-get install -y cowsay
+cowsay -f stegosaurus Build Step
 source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon build --event-handlers console_cohesion+ --symlink-install --cmake-args ${CMAKE_ARGS}
+cowsay -f stegosaurus Initialize Lcov Step
 source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon lcov-result --initial
+cowsay -f stegosaurus Test Step
 source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon test --event-handlers console_cohesion+ --return-code-on-test-failure
+source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash && colcon test-result --verbose
