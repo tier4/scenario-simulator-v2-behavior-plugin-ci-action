@@ -1,8 +1,7 @@
 FROM tier4/scenario_simulator_v2:galactic
+SHELL ["/bin/bash", "-c"]
+RUN mkdir -p /home/ubuntu/Desktop/behavior_plugin_ws/src
 
-COPY entrypoint.sh /entrypoint.sh
-
-RUN apk add --update --no-cache docker
-RUN ["chmod", "+x", "/entrypoint.sh"]
-
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+COPY entrypoint.sh /home/ubuntu/Desktop/entrypoint.sh
+RUN ["chmod", "+x", "/home/ubuntu/Desktop/entrypoint.sh"]
+ENTRYPOINT ["/home/ubuntu/Desktop/entrypoint.sh"]

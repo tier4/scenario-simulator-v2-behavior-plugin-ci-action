@@ -4,7 +4,6 @@ REPOS_PATH=$2
 CMAKE_ARGS=$3
 ROS_DISTRO=$4
 
-touch entrypoint.sh
 git config --global url.'https://$GTHUB_TOKEN:x-oauth-basic@github.com/'.insteadOf 'https://github.com/'
 cd /home/ubuntu/Desktop/behavior_plugin_ws/src
 git clone ${REPOSITORY_URL} target
