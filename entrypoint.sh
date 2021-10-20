@@ -43,6 +43,6 @@ echo "colcon test --event-handlers console_cohesion+ --return-code-on-test-failu
 echo "colcon test-result --verbose" >> entrypoint.sh
 
 docker build -t runtime_image \
-    --build-arg ROS_DISTRO=galactic
+    --build-arg ROS_DISTRO=${ROS_DISTRO} \
     . \
     && docker run runtime_image
