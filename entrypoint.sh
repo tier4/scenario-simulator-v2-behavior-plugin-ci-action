@@ -16,10 +16,10 @@ pip3 install colcon-lcov-result==0.5.0
 colcon mixin add default 'https://raw.githubusercontent.com/colcon/colcon-mixin-repository/1ddb69bedfd1f04c2f000e95452f7c24a4d6176b/index.yaml'
 colcon mixin update default
 
-cowsay -f stegosaurus Build Step
+/usr/games/cowsay -f stegosaurus Build Step
 colcon build --event-handlers console_cohesion+ --symlink-install --cmake-args ${CMAKE_ARGS}
-cowsay -f stegosaurus Initialize Lcov Step
+/usr/games/cowsay -f stegosaurus Initialize Lcov Step
 colcon lcov-result --initial
-cowsay -f stegosaurus Test Step
+/usr/games/cowsay -f stegosaurus Test Step
 colcon test --event-handlers console_cohesion+ --return-code-on-test-failure
 colcon test-result --verbose
