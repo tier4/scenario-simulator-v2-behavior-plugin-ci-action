@@ -18,10 +18,8 @@ jobs:
       matrix:
         ros_distro: [foxy, galactic]
     steps:
-    # To use this repository's private action, you must check out the repository
-    - uses: actions/checkout@v2
     - name: Run scenario-simulator-v2-behavior-plugin-ci-action action
-      uses: ./
+      uses: tier4/scenario-simulator-v2-behavior-plugin-ci-action@master
       with:
         repository_name: tier4/context_gamma_planner
         cmake_args: -DWITH_INTEGRATION_TEST=ON
