@@ -31,12 +31,12 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 
 ```
 
-|      name       |                                        description                                        | required |          default           |
-| --------------- | ----------------------------------------------------------------------------------------- | -------- | -------------------------- |
-| repository_name | repository name of behavior plugin github repository, such as tier4/context_gamma_planner | true     |                            |
-| repos_path      | relative repos yaml path in your repository                                               | false    | dependency.yaml            |
-| cmake_args      | arguments after --cmake_args in colcon build                                              | false    | -DWITH_INTEGRATION_TEST=ON |
-| ros_distro      | ros distribution currently support galactic and foxy                                      | false    | galactic                   |
+|      name       |                                        description                                        | required |                                                             default                                                             |
+| --------------- | ----------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| repository_name | repository name of behavior plugin github repository, such as tier4/context_gamma_planner | true     |                                                                                                                                 |
+| repos_path      | relative repos yaml path in your repository                                               | false    | dependency.yaml                                                                                                                 |
+| cmake_args      | arguments after --cmake_args in colcon build                                              | false    | -DWITH_INTEGRATION_TEST=ON  -DCMAKE_CXX_FLAGS='-fprofile-arcs -ftest-coverage' -DCMAKE_C_FLAGS='-fprofile-arcs -ftest-coverage' |
+| ros_distro      | ros distribution currently support galactic and foxy                                      | false    | galactic                                                                                                                        |
 
 # How it works?
 

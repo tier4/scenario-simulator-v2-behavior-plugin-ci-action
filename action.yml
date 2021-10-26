@@ -14,7 +14,7 @@ inputs:
   cmake_args:
     description: "--cmake-args variable in colcon build"
     required: false
-    default: -DWITH_INTEGRATION_TEST=ON
+    default: -DWITH_INTEGRATION_TEST=ON -DCMAKE_CXX_FLAGS='-fprofile-arcs -ftest-coverage' -DCMAKE_C_FLAGS='-fprofile-arcs -ftest-coverage'
   ros_distro:
     description: "ros distribution currently support galactic and foxy"
     required: false
