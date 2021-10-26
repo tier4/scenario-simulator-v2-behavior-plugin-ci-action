@@ -42,7 +42,6 @@ echo "colcon lcov-result --initial" >> entrypoint.sh
 echo "figlet Run Test Step" >> entrypoint.sh
 echo "colcon test --event-handlers console_cohesion+ --return-code-on-test-failure" >> entrypoint.sh
 echo "colcon test-result --verbose" >> entrypoint.sh
-echo "colcon lcov-result" >> entrypoint.sh
 
 echo "figlet Upload Step" >> entrypoint.sh
 echo "cd /home/ubuntu/Desktop/artifact_controller" >> entrypoint.sh
