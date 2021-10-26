@@ -26,4 +26,4 @@ jobs:
         cmake_args: -DWITH_INTEGRATION_TEST=ON -DCMAKE_CXX_FLAGS='-fprofile-arcs -ftest-coverage' -DCMAKE_C_FLAGS='-fprofile-arcs -ftest-coverage'
         ros_distro: ${{ matrix.ros_distro }}
         clone_token: ${{ secrets.CLONE_TOKEN }}
-    - uses: mxschmitt/action-tmate@v3
+    # - uses: mxschmitt/action-tmate@v3
