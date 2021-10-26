@@ -22,7 +22,7 @@ jobs:
       uses: tier4/scenario-simulator-v2-behavior-plugin-ci-action@master
       with:
         repository_name: tier4/context_gamma_planner
-        cmake_args: -DWITH_INTEGRATION_TEST=ON
+        cmake_args: -DWITH_INTEGRATION_TEST=ON -DCMAKE_CXX_FLAGS='-fprofile-arcs -ftest-coverage' -DCMAKE_C_FLAGS='-fprofile-arcs -ftest-coverage'
         ros_distro: ${{ matrix.ros_distro }}
       env:
         GITHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 
