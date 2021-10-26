@@ -49,4 +49,4 @@ echo "cp -r /home/ubuntu/Desktop/behavior_plugin_ws /github/home"
 docker build -t runtime_image \
     --build-arg ROS_DISTRO=${ROS_DISTRO} \
     . \
-    && docker run runtime_image
+    && docker run runtime_image -v /github/home:/github/home
