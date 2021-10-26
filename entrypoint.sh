@@ -53,7 +53,9 @@ echo "colcon test-result --verbose" >> entrypoint.sh
 echo "figlet Upload Step" >> entrypoint.sh
 echo "cd /home/ubuntu/Desktop/artifact_controller" >> entrypoint.sh
 echo "npm install" >> entrypoint.sh
-echo "npm run upload workspace-${ROS_DISTRO} /home/ubuntu/Desktop/behavior_plugin_ws" >> entrypoint.sh
+echo "mkdir -p /home/ubuntu/Desktop/artifacts"  >> entrypoint.sh
+echo "tar -zcvf /home/ubuntu/Desktop/behavior_plugin_ws /home/ubuntu/Desktop/artifacts/artifacts.tar.gz" >> entrypoint.sh
+echo "npm run upload workspace-${ROS_DISTRO} /home/ubuntu/Desktop/artifacts" >> entrypoint.sh
 
 docker build -t runtime_image \
     --build-arg ROS_DISTRO=${ROS_DISTRO} \
