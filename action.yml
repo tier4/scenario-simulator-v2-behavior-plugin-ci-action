@@ -19,6 +19,9 @@ inputs:
     description: "ros distribution currently support galactic and foxy"
     required: false
     default: galactic
+  clone_token:
+    description: token for cloning private repository
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
