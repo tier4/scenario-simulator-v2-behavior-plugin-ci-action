@@ -27,3 +27,4 @@ jobs:
         ros_distro: ${{ matrix.ros_distro }}
       env:
         GITHUB_TOKEN: ${{ secrets.CLONE_TOKEN }}
+    - uses: mxschmitt/action-tmate@v3
