@@ -26,3 +26,7 @@ jobs:
         ros_distro: ${{ matrix.ros_distro }}
       env:
         GITHUB_TOKEN: ${{ secrets.CLONE_TOKEN }} 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: ros_workspace
+        path: /home/runner/work/_temp/_github_home/behavior_plugin_ws
