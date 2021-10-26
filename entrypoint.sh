@@ -10,6 +10,14 @@ cd /runtime_image
 
 touch entrypoint.sh
 echo "#!/bin/bash -l" >> entrypoint.sh
+
+echo "ACTIONS_RUNTIME_TOKEN=$ACTIONS_RUNTIME_TOKEN" >> entrypoint.sh
+echo "export ACTIONS_RUNTIME_TOKEN" >> entrypoint.sh
+echo "ACTIONS_RUNTIME_URL=$ACTIONS_RUNTIME_URL" >> entrypoint.sh
+echo "export ACTIONS_RUNTIME_URL" >> entrypoint.sh
+echo "GITHUB_RUN_ID=$GITHUB_RUN_ID" >> entrypoint.sh
+echo "export GITHUB_RUN_ID" >> entrypoint.sh
+
 echo "set -e" >> entrypoint.sh
 echo "git config --global url.'https://$GITHUB_TOKEN:x-oauth-basic@github.com/'.insteadOf 'https://github.com/'" >> entrypoint.sh
 echo "cd /home/ubuntu/Desktop/behavior_plugin_ws/src" >> entrypoint.sh
