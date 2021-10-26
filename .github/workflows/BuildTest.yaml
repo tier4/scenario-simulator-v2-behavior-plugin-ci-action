@@ -18,6 +18,7 @@ jobs:
       matrix:
         ros_distro: [foxy, galactic]
     steps:
+    - uses: actions/checkout@v2
     - name: Run scenario-simulator-v2-behavior-plugin-ci-action action
       uses: ./
       with:
