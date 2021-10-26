@@ -18,8 +18,9 @@ jobs:
       matrix:
         ros_distro: [foxy, galactic]
     steps:
+    - uses: actions/checkout@v2
     - name: Run scenario-simulator-v2-behavior-plugin-ci-action action
-      uses: tier4/scenario-simulator-v2-behavior-plugin-ci-action@master
+      uses: ./
       with:
         repository_name: tier4/context_gamma_planner
         cmake_args: -DWITH_INTEGRATION_TEST=ON -DCMAKE_CXX_FLAGS='-fprofile-arcs -ftest-coverage' -DCMAKE_C_FLAGS='-fprofile-arcs -ftest-coverage'
