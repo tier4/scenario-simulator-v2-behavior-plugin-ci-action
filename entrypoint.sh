@@ -51,7 +51,7 @@ echo "figlet Run Test Step" >> entrypoint.sh
 echo "colcon test --event-handlers console_cohesion+ --return-code-on-test-failure" >> entrypoint.sh
 echo "colcon test-result --verbose" >> entrypoint.sh
 
-echo "cp -r /home/ubuntu/Desktop/behavior_plugin_ws /github/home/ros_workspace" >> entrypoint.sh
+echo "cp -r /home/ubuntu/Desktop/behavior_plugin_ws /github/home" >> entrypoint.sh
 
 docker build -t runtime_image \
     --build-arg ROS_DISTRO=${ROS_DISTRO} \
