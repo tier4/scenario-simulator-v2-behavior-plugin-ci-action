@@ -54,7 +54,7 @@ echo "figlet Upload Step" >> entrypoint.sh
 echo "cd /home/ubuntu/Desktop/artifact_controller" >> entrypoint.sh
 echo "npm install" >> entrypoint.sh
 echo "mkdir -p /home/ubuntu/Desktop/artifacts"  >> entrypoint.sh
-echo "tar -cvjf /home/ubuntu/Desktop/behavior_plugin_ws /home/ubuntu/Desktop/artifacts/artifacts.tar.gz" >> entrypoint.sh
+echo "tar -cvjf /home/ubuntu/Desktop/artifacts/artifacts.tar.bz2 /home/ubuntu/Desktop/behavior_plugin_ws" >> entrypoint.sh
 echo "npm run upload workspace-${ROS_DISTRO} /home/ubuntu/Desktop/artifacts" >> entrypoint.sh
 
 docker build -t runtime_image \
