@@ -1,6 +1,8 @@
 ARG ROS_DISTRO
 FROM tier4/scenario_simulator_v2:${ROS_DISTRO}
 SHELL ["/bin/bash", "-c"]
+ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBCONF_NOWARNINGS=yes
 RUN mkdir -p /home/ubuntu/Desktop/behavior_plugin_ws/src
 RUN apt-get update && apt-get install -y figlet
 COPY entrypoint.sh /home/ubuntu/Desktop/entrypoint.sh
