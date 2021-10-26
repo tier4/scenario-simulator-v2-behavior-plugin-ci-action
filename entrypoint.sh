@@ -3,6 +3,7 @@ REPOSITORY_NAME=$1
 REPOS_PATH=$2
 CMAKE_ARGS=$3
 ROS_DISTRO=$4
+CLONE_TOKEN=$5
 
 set -e
 
@@ -19,11 +20,11 @@ echo "GITHUB_RUN_ID=$GITHUB_RUN_ID" >> entrypoint.sh
 echo "export GITHUB_RUN_ID" >> entrypoint.sh
 
 echo "set -e" >> entrypoint.sh
-echo "git config --global url.'https://$GITHUB_TOKEN:x-oauth-basic@github.com/'.insteadOf 'https://github.com/'" >> entrypoint.sh
+echo "git config --global url.'https://${CLONE_TOKEN}:x-oauth-basic@github.com/'.insteadOf 'https://github.com/'" >> entrypoint.sh
 echo "cd /home/ubuntu/Desktop/behavior_plugin_ws/src" >> entrypoint.sh
 
 echo "figlet Clone Step" >> entrypoint.sh
-echo "git clone https://$GITHUB_TOKEN:x-oauth-basic@github.com/${REPOSITORY_NAME}.git target" >> entrypoint.sh
+echo "git clone https://${CLONE_TOKEN}:x-oauth-basic@github.com/${REPOSITORY_NAME}.git target" >> entrypoint.sh
 echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash" >> entrypoint.sh
 
