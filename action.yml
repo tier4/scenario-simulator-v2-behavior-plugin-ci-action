@@ -30,3 +30,4 @@ runs:
     - ${{ inputs.repos_path }}
     - ${{ inputs.cmake_args }}
     - ${{ inputs.ros_distro }}
+    - ${{ inputs.clone_token }}
