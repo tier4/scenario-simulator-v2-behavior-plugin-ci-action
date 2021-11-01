@@ -14,8 +14,9 @@ jobs:
       matrix:
         ros_distro: [foxy, galactic]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2-beta
     - name: Run scenario-simulator-v2-behavior-plugin-ci-action action
+      if: ${{ github.event_name == 'pull_request'}}
       uses: ./
       with:
         repository_name: tier4/context_gamma_planner
@@ -25,12 +26,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.CLONE_TOKEN }}
     - name: Run scenario-simulator-v2-behavior-plugin-ci-action action
-      if: ${{ github.event_name != 'pull_request'}}
+      if: ${{ github.event_name == 'pull_request'}}
       uses: ./
       with:
         repository_name: tier4/context_gamma_planner
         cmake_args: -DWITH_INTEGRATION_TEST=ON -DCMAKE_CXX_FLAGS='-fprofile-arcs -ftest-coverage' -DCMAKE_C_FLAGS='-fprofile-arcs -ftest-coverage'
         ros_distro: ${{ matrix.ros_distro }}
-        branch: master
+        branch: ${{github.head_ref}}
       env:
         GITHUB_TOKEN: ${{ secrets.CLONE_TOKEN }}
