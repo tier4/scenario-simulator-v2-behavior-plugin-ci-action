@@ -19,6 +19,10 @@ inputs:
     description: "ros distribution currently support galactic and foxy"
     required: false
     default: galactic
+  branch:
+    description: "branch you want to clone"
+    required: false
+    default: master
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -27,3 +31,4 @@ runs:
     - ${{ inputs.repos_path }}
     - ${{ inputs.cmake_args }}
     - ${{ inputs.ros_distro }}
+    - ${{ inputs.branch }}

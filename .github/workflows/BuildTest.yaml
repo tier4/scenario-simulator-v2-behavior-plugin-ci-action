@@ -1,13 +1,9 @@
 name: test
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: 0 0 * * *
   pull_request:
-  push:
-    branches:
-      - master
 
 jobs:
   test:
@@ -18,12 +14,13 @@ jobs:
       matrix:
         ros_distro: [foxy, galactic]
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2-beta
     - name: Run scenario-simulator-v2-behavior-plugin-ci-action action
       uses: ./
       with:
         repository_name: tier4/context_gamma_planner
         cmake_args: -DWITH_INTEGRATION_TEST=ON -DCMAKE_CXX_FLAGS='-fprofile-arcs -ftest-coverage' -DCMAKE_C_FLAGS='-fprofile-arcs -ftest-coverage'
         ros_distro: ${{ matrix.ros_distro }}
+        branch: master
       env:
         GITHUB_TOKEN: ${{ secrets.CLONE_TOKEN }}
