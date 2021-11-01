@@ -3,6 +3,7 @@ REPOSITORY_NAME=$1
 REPOS_PATH=$2
 CMAKE_ARGS=$3
 ROS_DISTRO=$4
+BRANCH=$5
 
 set -e
 
@@ -15,7 +16,7 @@ echo "git config --global url.'https://$GITHUB_TOKEN:x-oauth-basic@github.com/'.
 echo "cd /home/ubuntu/Desktop/behavior_plugin_ws/src" >> entrypoint.sh
 
 echo "figlet Clone Step" >> entrypoint.sh
-echo "git clone https://$GITHUB_TOKEN:x-oauth-basic@github.com/${REPOSITORY_NAME}.git target" >> entrypoint.sh
+echo "git clone -b ${BRANCH} https://$GITHUB_TOKEN:x-oauth-basic@github.com/${REPOSITORY_NAME}.git target" >> entrypoint.sh
 echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> entrypoint.sh
 echo "source /home/ubuntu/Desktop/scenario_simulator_ws/install/local_setup.bash" >> entrypoint.sh
 
