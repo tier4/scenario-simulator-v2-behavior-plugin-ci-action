@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: 0 0 * * *
   pull_request:
+  workflow_dispatch:
 
 jobs:
   test:
@@ -12,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ros_distro: [foxy, galactic]
+        ros_distro: [galactic]
     steps:
     - uses: actions/checkout@v2-beta
     - name: Run scenario-simulator-v2-behavior-plugin-ci-action action

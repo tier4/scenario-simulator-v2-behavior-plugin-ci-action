@@ -1,5 +1,5 @@
 ARG ROS_DISTRO
-FROM tier4/scenario_simulator_v2:${ROS_DISTRO}
+FROM ghcr.io/tier4/scenario_simulator_v2:${ROS_DISTRO}
 SHELL ["/bin/bash", "-c"]
 RUN mkdir -p /home/ubuntu/Desktop/behavior_plugin_ws/src
 RUN apt-get update && apt-get install -y figlet wget nodejs npm
