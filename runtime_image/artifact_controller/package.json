@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@actions/artifact": "^0.5.2",
+    "@actions/artifact": "^2.1.7",
     "fs": "0.0.1-security",
     "glob": "^7.1.7",
     "yargs": "^17.0.1"
